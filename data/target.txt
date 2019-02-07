@@ -1,0 +1,45 @@
+-javaagent:C:\IntelliJ IDEA 2017.3.5\bin\JetbrainsCrack-2.7-release-str.jar
+
+
+
+-javaagent:D:\myfoder\idea\JetbrainsIdesCrack-4.2-release-sha1-3323d5d0b82e716609808090d3dc7cb3198b8c4b.jar
+
+
+C:\Users\Administrator\IdeaProjects
+
+
+-javaagent:C:\IntelliJ IDEA 2017.3.5\bin\JetbrainsCrack-2.7-release-str.jar
+
+
+
+-javaagent:D:\myfoder\idea\JetbrainsIdesCrack-4.2-release-sha1-3323d5d0b82e716609808090d3dc7cb3198b8c4b.jar
+
+
+C:\Users\Administrator\IdeaProjects
+
+-javaagent:C:\IntelliJ IDEA 2017.3.5\bin\JetbrainsCrack-2.7-release-str.jar
+
+
+
+-javaagent:D:\myfoder\idea\JetbrainsIdesCrack-4.2-release-sha1-3323d5d0b82e716609808090d3dc7cb3198b8c4b.jar
+
+
+C:\Users\Administrator\IdeaProjects
+
+
+-javaagent:C:\IntelliJ IDEA 2017.3.5\bin\JetbrainsCrack-2.7-release-str.jar
+
+
+
+-javaagent:D:\myfoder\idea\JetbrainsIdesCrack-4.2-release-sha1-3323d5d0b82e716609808090d3dc7cb3198b8c4b.jar
+
+
+C:\Users\Administrator\IdeaProjects
+-javaagent:C:\IntelliJ IDEA 2017.3.5\bin\JetbrainsCrack-2.7-release-str.jar
+
+
+
+-javaagent:D:\myfoder\idea\JetbrainsIdesCrack-4.2-release-sha1-3323d5d0b82e716609808090d3dc7cb3198b8c4b.jar
+
+
+C:\Users\Administrator\IdeaProjects
