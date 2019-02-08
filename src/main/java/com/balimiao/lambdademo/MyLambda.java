@@ -24,6 +24,9 @@ public class MyLambda {
         List<Integer> numbers = Arrays.asList(9, 9, 8);
         list2.add(integers);
         list2.add(numbers);
+        Integer reduce  = integers.stream().reduce((integer, integer2) -> integer + integer2).get();
+        System.out.println("reduce"+reduce);
+
 
 //        List<Integer> collect = list2.stream().flatMap(c ->
 //                c.stream()
