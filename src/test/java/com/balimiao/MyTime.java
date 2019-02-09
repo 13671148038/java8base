@@ -2,15 +2,17 @@ package com.balimiao;
 
 import org.junit.Test;
 
-import java.time.*;
+import java.time.Clock;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalField;
 
 public class MyTime {
 
     //时钟类Clock
     @Test
-    public void test1()  {
+    public void test1() {
         Clock clock = Clock.systemUTC();
         //返回当前毫秒值
         long millis = clock.millis();
@@ -19,7 +21,7 @@ public class MyTime {
 
     //java8新的时间格式化
     @Test
-    public void test2(){
+    public void test2() {
         DateTimeFormatter isoLocalDateTime = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String format = isoLocalDateTime.format(LocalDateTime.now());
         System.out.println(format);
@@ -28,10 +30,10 @@ public class MyTime {
 
     //java8的时间片段
     @Test
-    public void test3(){
-        final LocalDateTime from = LocalDateTime.of( 2014, Month.APRIL, 16, 0, 0, 0 );
-        final LocalDateTime to = LocalDateTime.of( 2015, Month.APRIL, 16, 23, 59, 59 );
-        Duration duration = Duration.between(from,to);
+    public void test3() {
+        final LocalDateTime from = LocalDateTime.of(2014, Month.APRIL, 16, 0, 0, 0);
+        final LocalDateTime to = LocalDateTime.of(2015, Month.APRIL, 16, 23, 59, 59);
+        Duration duration = Duration.between(from, to);
         long l = duration.toDays();
         System.out.println(l);
 
