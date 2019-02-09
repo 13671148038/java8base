@@ -25,6 +25,8 @@ public class MyTime {
         System.out.println(format);
     }
 
+
+    //java8的时间片段
     @Test
     public void test3(){
         final LocalDateTime from = LocalDateTime.of( 2014, Month.APRIL, 16, 0, 0, 0 );
@@ -32,5 +34,13 @@ public class MyTime {
         Duration duration = Duration.between(from,to);
         long l = duration.toDays();
         System.out.println(l);
+
+        Duration duration1 = Duration.ofDays(1);
+        long l1 = duration1.toMinutes();
+        long seconds = duration1.getSeconds();
+        long l2 = duration1.toMillis();
+        System.out.println(l1);
+        System.out.println(seconds);
+        System.out.println(l2);
     }
 }
