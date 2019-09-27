@@ -5,7 +5,11 @@ import org.junit.Test;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
+import java.time.temporal.TemporalAdjusters;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 public class MyTime {
 
@@ -102,4 +106,99 @@ public class MyTime {
         System.out.println(month.getDisplayName(TextStyle.NARROW, locale));
         System.out.println(month.getDisplayName(TextStyle.SHORT, locale));
     }
+
+    //TemporalAdjusters时间调整器
+    @Test
+    public void temporalAdjustersTest() {
+        LocalDateTime date = LocalDateTime.now();
+        //获取当月的最后一个周六的日期
+        LocalDateTime lastDayOfWeek = date.with(TemporalAdjusters.lastInMonth(DayOfWeek.of(6)));
+        System.out.println(lastDayOfWeek);
+        //获取当月的第一次周六的日期
+        LocalDateTime firstDayOfWeek = date.with(TemporalAdjusters.firstInMonth(DayOfWeek.of(6)));
+        System.out.println(firstDayOfWeek);
+        //获取当月的第一天
+        LocalDateTime with = date.with(TemporalAdjusters.firstDayOfMonth());
+        System.out.println(with);
+        //获取当月的最后一天
+        LocalDateTime with1 = date.with(TemporalAdjusters.lastDayOfMonth());
+        System.out.println(with1);
+    }
+
+    //YearMonth 只有年月的时间类型
+    @Test
+    public void yearMonthTest() {
+        YearMonth now = YearMonth.now();
+        //获取现在的年月
+        System.out.println(now);
+        //获取当月的天数
+        System.out.println(now.lengthOfMonth());
+        //获取当年的天数
+        System.out.println(now.lengthOfYear());
+    }
+
+    //MonthDay 只有月日的时间类型
+    @Test
+    public void monthDayTest() {
+        MonthDay now = MonthDay.now();
+        //判断年月在指定的年份是否存在
+        System.out.println(now.isValidYear(2012));
+    }
+
+    //MonthDay 只有月日的时间类型
+    @Test
+    public void yearTest() {
+        Year now = Year.now();
+        //判断是不是闰年
+        System.out.println(now.isLeap());
+    }
+
+    //ZoneId
+    @Test
+    public void zoneIdTest() {
+        LocalDateTime now = LocalDateTime.now();
+        ZoneId zoneId = ZoneId.systemDefault();
+        System.out.println(zoneId.getId());
+        Set<String> availableZoneIds = ZoneId.getAvailableZoneIds();
+        List<String> zonIdList = new ArrayList<>(availableZoneIds);
+        //遍历全部的市区id
+        zonIdList.forEach(c -> {
+            System.out.println(c);
+        });
+    }
+
+    //ZonedDateTime
+    @Test
+    public void zonedDateTimeTest() {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy MM dd HH:mm:ss");
+        LocalDateTime localNow = LocalDateTime.now();
+        System.out.println(localNow.format(dateTimeFormatter));
+        ZonedDateTime zoneNow = ZonedDateTime.of(localNow, ZoneId.of("America/Los_Angeles"));
+        System.out.println(zoneNow.format(dateTimeFormatter));
+
+    }
+
+    //Instant 瞬时
+    @Test
+    public void instantTest() {
+        Instant now = Instant.now();
+        System.out.println(now.toEpochMilli());
+    }
+
+    //Instant 瞬时
+    @Test
+    public void parseTest() {
+        String input = "2016-06-24 00:00:00";
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDate parse = LocalDate.parse(input, dateTimeFormatter);
+        System.out.println(parse);
+        LocalDateTime parse4 = LocalDateTime.parse(input, dateTimeFormatter);
+
+        long l1 = parse4.toInstant(ZoneOffset.UTC).toEpochMilli();
+        System.out.println(l1);
+
+        long l = parse.toEpochDay();
+        System.out.println(l*1000*60*60*24);
+    }
+
 }
