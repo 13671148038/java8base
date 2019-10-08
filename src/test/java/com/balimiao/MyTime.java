@@ -185,7 +185,7 @@ public class MyTime {
         System.out.println(now.toEpochMilli());
     }
 
-    //Instant 瞬时
+    //时间转换 瞬时
     @Test
     public void parseTest() {
         String input = "2016-06-24 00:00:00";
