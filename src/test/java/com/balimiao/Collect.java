@@ -1,5 +1,6 @@
 package com.balimiao;
 
+import com.balimiao.staticclass.Adddd;
 import org.junit.Test;
 
 import java.util.*;
@@ -39,7 +40,6 @@ public class Collect {
 
     @Test
     public  void aaa(){
-
     }
 
 }

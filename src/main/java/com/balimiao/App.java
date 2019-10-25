@@ -1,6 +1,7 @@
 package com.balimiao;
 
 import com.balimiao.enumdemo.MyEnum;
+import com.balimiao.enumdemo.WeekEnum;
 
 /**
  * Hello world!
@@ -16,8 +17,11 @@ public class App {
 //        list.add(list2);
 ////        Stream.of(list).flatMapToDouble(a->a.stream().flatMapToDouble(c-> DoubleStream.of(Double.valueOf(c+"")))).forEach(c-> System.out.println(c));
 //        Stream.of(list).flatMap(c -> c.stream()).forEach(c -> System.out.println(c));
-        MyEnum currency = MyEnum.CURRENCY;
-        System.out.println(currency.getDesc());
+        WeekEnum monday = WeekEnum.MONDAY;
+        System.out.println(monday);
+        System.out.println(monday.name());
+        System.out.println(monday.ordinal());
+        System.out.println(monday.getValue());
 
     }
 
