@@ -21,6 +21,7 @@ public class MyTime {
         long l = clock.instant().toEpochMilli();
         //返回当前毫秒值
         long millis = clock.millis();
+
         System.out.println(millis);
         System.out.println(l);
     }
