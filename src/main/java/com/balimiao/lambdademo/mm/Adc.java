@@ -2,7 +2,7 @@ package com.balimiao.lambdademo.mm;
 
 public class Adc {
 
-    public String sdc(MyFunctionInterface pa) {
-        return "wedw";
+    public <T, R> R sdc(MyFunctionInterface<T, R> pa, T t) {
+        return pa.reup(t);
     }
 }
