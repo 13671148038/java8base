@@ -2,9 +2,7 @@ package com.balimiao.threadp;
 
 import org.junit.Test;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 public class MyThread {
 
@@ -33,6 +31,13 @@ public class MyThread {
         boolean terminated = executorService.isTerminated();
         System.out.println("terminated:"+terminated);
         System.out.println("execute over");
+    }
+
+    @Test
+    public void test3(){
+        new ThreadPoolExecutor(1, 2,
+                0L, TimeUnit.MILLISECONDS,
+                new LinkedBlockingQueue<Runnable>());
     }
 
 }

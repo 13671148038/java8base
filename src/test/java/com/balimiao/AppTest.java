@@ -2,6 +2,9 @@ package com.balimiao;
 
 import org.junit.Test;
 
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -18,10 +21,28 @@ public class AppTest {
         Stream.of(split).forEach(c -> System.out.println(c + "======="));
         System.out.println(split.length);
     }
+
     @Test
     public void aaa() {
-        String ids = " 1 , 2  , 3, 4 ,54 , 5 ,";
-        String replace = ids.replaceAll(" ", "");
-        System.out.println(replace);
+      List<Integer> list = new ArrayList<>();
+        list.add(5);
+        list.add(88);
+        list.add(9);
+//        list.sort((a,b)->a.compareTo(b));
+        list.sort(Comparator.comparing(Integer::intValue));
+        list.forEach(c->{
+            System.out.println(c);
+        });
+    }
+
+    @Test
+    public void bbbb() {
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        Map<Integer, Integer> collect = list.stream().collect(Collectors.toMap(c -> c, Function.identity()));
+        collect.forEach((k, v) -> System.out.println(k + ":" + v));
     }
 }

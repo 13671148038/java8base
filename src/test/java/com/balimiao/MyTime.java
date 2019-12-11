@@ -199,7 +199,14 @@ public class MyTime {
         System.out.println(l1);
 
         long l = parse.toEpochDay();
-        System.out.println(l*1000*60*60*24);
+        System.out.println(l * 1000 * 60 * 60 * 24);
+    }
+
+    //将当天的秒数转化成时间
+    @Test
+    public void ddd() {
+        LocalTime localTime = LocalTime.ofSecondOfDay(3600);
+        System.out.println(localTime.toString()); //01:00
     }
 
 }

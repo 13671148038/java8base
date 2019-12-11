@@ -10,5 +10,8 @@ import org.junit.Test;
 public class Operator {
     @Test
     public void a() {
+        Double aa = 555D;
+        final String format = String.format("%.0f", aa);
+        System.out.println(format);
     }
 }
