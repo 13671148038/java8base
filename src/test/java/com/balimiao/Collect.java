@@ -40,6 +40,12 @@ public class Collect {
 
     @Test
     public  void aaa(){
+        List<Integer> list = new ArrayList<>();
+        list.add(3);
+        list.add(2);
+        list.add(2);
+        list = list.stream().filter(c->c.equals(3)).collect(Collectors.toList());
+        System.out.println(list);
     }
 
 }
