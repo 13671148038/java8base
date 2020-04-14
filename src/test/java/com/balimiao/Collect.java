@@ -40,12 +40,20 @@ public class Collect {
 
     @Test
     public  void aaa(){
-        List<Integer> list = new ArrayList<>();
-        list.add(3);
-        list.add(2);
-        list.add(2);
-        list = list.stream().filter(c->c.equals(3)).collect(Collectors.toList());
-        System.out.println(list);
+//        List<Integer> list = new ArrayList<>();
+//        list.add(3);
+//        list.add(2);
+//        list.add(2);
+//        list = list.stream().filter(c->c.equals(3)).collect(Collectors.toList());
+////        System.out.println(list);
+//        String customPriceStr = "50.056";
+//        final double v = Double.parseDouble(customPriceStr);
+//        System.out.println(v);
+//        int cd = customPriceStr.length() - customPriceStr.indexOf(".") - 1;
+//        System.out.println(cd);
+
+        Integer a = -5;
+        System.out.println(a.compareTo(0));
     }
 
 }

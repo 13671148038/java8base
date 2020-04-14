@@ -6,10 +6,7 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
 import java.time.temporal.TemporalAdjusters;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Set;
+import java.util.*;
 
 public class MyTime {
 
@@ -207,6 +204,13 @@ public class MyTime {
     public void ddd() {
         LocalTime localTime = LocalTime.ofSecondOfDay(3600);
         System.out.println(localTime.toString()); //01:00
+    }
+    //将当天的秒数转化成时间
+    @Test
+    public void dddssd() {
+     List<Double> doubles = Arrays.asList(34.5);
+        final Double reduce = doubles.stream().reduce(5.0, Double::sum);
+        System.out.println(reduce);
     }
 
 }

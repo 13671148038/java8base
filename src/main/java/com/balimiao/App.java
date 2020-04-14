@@ -1,6 +1,7 @@
 package com.balimiao;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -10,18 +11,9 @@ import java.util.Optional;
  */
 public class App {
     public static void main(String[] args) {
-        try {
-            Map map = new HashMap<>();
-            map.put(1, 1);
-            Object o = Optional.ofNullable(map.get(2)).orElseThrow(() -> new RuntimeException(""));
-            System.out.println(o);
-        } catch (IllegalArgumentException e) {
-            System.out.println("IllegalArgumentException");
-        }catch (RuntimeException e){
-            System.out.println("RuntimeException");
-        }catch (Exception e){
-            System.out.println("Exception");
-        }
+        BigDecimal bigDecimal = BigDecimal.valueOf(0.00);
+        System.out.println(bigDecimal.toString().equals("0.0"));
+
     }
 
     public static String aa() {
