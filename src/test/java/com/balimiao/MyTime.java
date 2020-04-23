@@ -191,10 +191,13 @@ public class MyTime {
         LocalDate parse = LocalDate.parse(input, dateTimeFormatter);
         System.out.println(parse);
         LocalDateTime parse4 = LocalDateTime.parse(input, dateTimeFormatter);
-
+        //当前毫秒值
         long l1 = parse4.toInstant(ZoneOffset.UTC).toEpochMilli();
         System.out.println(l1);
-
+        //秒值
+        final long l2 = parse4.toEpochSecond(ZoneOffset.UTC);
+        System.out.println(l2);
+        //当前天数
         long l = parse.toEpochDay();
         System.out.println(l * 1000 * 60 * 60 * 24);
     }

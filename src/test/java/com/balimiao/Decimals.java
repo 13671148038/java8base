@@ -33,4 +33,9 @@ public class Decimals {
                 setScale(2, RoundingMode.HALF_UP); //保留两位小数,四舍五入
         System.out.println(decimal);
     }
+    @Test
+    public void c() {
+        BigDecimal decimal = new BigDecimal("0.00");
+        System.out.println(decimal.doubleValue() == 0.0);
+    }
 }
