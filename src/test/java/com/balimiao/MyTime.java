@@ -211,9 +211,13 @@ public class MyTime {
     //将当天的秒数转化成时间
     @Test
     public void dddssd() {
-     List<Double> doubles = Arrays.asList(34.5);
-        final Double reduce = doubles.stream().reduce(5.0, Double::sum);
-        System.out.println(reduce);
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime parse = LocalDateTime.parse("2020-04-25 00:30:14", dateTimeFormatter);
+        long startTimeSecond = parse.toEpochSecond(ZoneOffset.ofHours(8));
+        System.out.println(startTimeSecond*1000);
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(startTimeSecond*1000), ZoneOffset.UTC);
+        System.out.println(localDateTime);
+        System.out.println(new Date(startTimeSecond*1000));
     }
 
 }
