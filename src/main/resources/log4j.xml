@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<configuration>
+
+    <property name="logback.logdir" value="log"></property>
+    <property name="logback.appname" value="ykq"></property>
+
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <!--展示格式 layout-->
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d -1 %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <appender name="mqAppender1" class="org.apache.rocketmq.logappender.log4j.RocketmqLog4jAppender">
+        <param name="Tag" value="yourTag" />
+        <param name="Topic" value="yourLogTopic" />
+        <param name="ProducerGroup" value="yourLogGroup" />
+        <param name="NameServerAddress" value="yourRocketmqNameserverAddress"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss}-%p %t %c - %m%n" />
+        </layout>
+        <!--滚动策略，按照时间滚动 TimeBasedRollingPolicy-->
+        <File>${logback.logdir}/info.${logback.appname}.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--文件路径,定义了日志的切分方式——把每一天的日志归档到一个文件中,以防止日志填满整个磁盘空间-->
+            <FileNamePattern>${logback.logdir}/info.${logback.appname}.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <!--只保留最近90天的日志-->
+            <maxHistory>90</maxHistory>
+            <!--用来指定日志文件的上限大小，那么到了这个值，就会删除旧的日志-->
+            <!--<totalSizeCap>1GB</totalSizeCap>-->
+        </rollingPolicy>
+    </appender>
+
+    <appender name="mqAsyncAppender1" class="org.apache.log4j.AsyncAppender">
+        <param name="BufferSize" value="1024" />
+        <param name="Blocking" value="false" />
+        <appender-ref ref="mqAppender1"/>
+    </appender>
+
+    <root level="INFO">
+        <!--appender将会添加到这个loger-->
+        <appender-ref ref="consoleLog"/>
+        <appender-ref ref="mqAppender1"/>
+        <appender-ref ref="mqAsyncAppender1"/>
+    </root>
+
+</configuration>

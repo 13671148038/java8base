@@ -1,18 +1,12 @@
 package com.balimiao;
 
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-
 /**
  * Hello world!
  */
 public class App {
     public static void main(String[] args) {
-        BigDecimal bigDecimal = BigDecimal.valueOf(0.00);
-        System.out.println(bigDecimal.toString().equals("0.0"));
+        Double a = 2.2;
+        System.out.println(a.compareTo(2.3));
 
     }
 
