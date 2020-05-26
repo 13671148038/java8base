@@ -5,15 +5,10 @@ package com.balimiao;
  */
 public class App {
     public static void main(String[] args) {
-        Double a = 2.2;
-        System.out.println(a.compareTo(2.3));
+        String aaa = "50";
+        final String s = aaa.replace(".0", "");
+        System.out.println(s);
 
     }
-
-    public static String aa() {
-        System.out.println(1111);
-        return "dddd";
-    }
-
 
 }
