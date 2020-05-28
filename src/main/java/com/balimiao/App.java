@@ -1,14 +1,14 @@
 package com.balimiao;
 
+import java.math.BigInteger;
+
 /**
  * Hello world!
  */
 public class App {
     public static void main(String[] args) {
-        String aaa = "50";
-        final String s = aaa.replace(".0", "");
-        System.out.println(s);
-
+        char c = 'k';
+        System.out.println(c);
     }
 
 }

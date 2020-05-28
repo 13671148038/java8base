@@ -18,8 +18,8 @@ public class Demo {
         Field[] declaredFields = userClass.getDeclaredFields();
         for (Field field : declaredFields) {
             MyAnnotation annotation = field.getAnnotation(MyAnnotation.class);
-            final String methodName = annotation.methodName();
-            final String propert = annotation.propert();
+            String methodName = annotation.methodName();
+            String propert = annotation.propert();
             System.out.println(methodName);
             System.out.println(propert);
             Class aClass = user.getClass();

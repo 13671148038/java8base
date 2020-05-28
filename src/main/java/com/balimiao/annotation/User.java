@@ -12,7 +12,6 @@ public class User {
     private String sex;
     @MyAnnotation(propert = "年龄", methodName = "getAge")
     private Integer age;
-    private Integer weight;
 
     public String getName() {
         return name;
@@ -38,11 +37,4 @@ public class User {
         this.age = age;
     }
 
-    public Integer getWeight() {
-        return weight;
-    }
-
-    public void setWeight(Integer weight) {
-        this.weight = weight;
-    }
 }
