@@ -3,7 +3,6 @@ package com.balimiao.annotation;
 import java.lang.reflect.Field;
 
 /**
- * @Description: TODO
  * @Author zhushaopeng
  * @Date 2020/5/26
  **/
