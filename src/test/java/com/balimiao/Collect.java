@@ -39,21 +39,16 @@ public class Collect {
     }
 
     @Test
-    public  void aaa(){
-//        List<Integer> list = new ArrayList<>();
-//        list.add(3);
-//        list.add(2);
-//        list.add(2);
-//        list = list.stream().filter(c->c.equals(3)).collect(Collectors.toList());
-////        System.out.println(list);
-//        String customPriceStr = "50.056";
-//        final double v = Double.parseDouble(customPriceStr);
-//        System.out.println(v);
-//        int cd = customPriceStr.length() - customPriceStr.indexOf(".") - 1;
-//        System.out.println(cd);
-
-        Integer a = -5;
-        System.out.println(a.compareTo(0));
+    public void aaa() {
+        final List<Object> objects = Collections.synchronizedList(new ArrayList<>());
+        objects.add(3);
+        System.out.println(objects);
+        List<Object> object4 = Collections.synchronizedList(new ArrayList<>());
+        object4.add(5);
+        System.out.println(object4);
+        System.out.println(objects == object4);
+        List<ArrayList<Object>> arrayLists = Collections.singletonList(new ArrayList<>());
+        arrayLists = Collections.singletonList(new ArrayList<>());
     }
 
 }

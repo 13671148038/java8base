@@ -6,32 +6,40 @@ package com.balimiao.staticclass;
  * @Date 2019/10/24
  **/
 public class Adddd {
+    private Integer aa = 3;
 
     public static class Node {
 
-        public static Integer i = 0;
+        public Integer i = 0;
 
-        public static void ddd() {
+        public void ddd() {
             i++;
+        }
+
+        public Integer getd() {
+            return i;
         }
     }
 
 
     public void setI() {
-        Node.ddd();
+        Node node = new Node();
+        node.ddd();
     }
 
-    public Integer getI() {
-        return Node.i;
+    public void getI() {
+        Node node = new Node();
+        final Integer getd = node.getd();
+        System.out.println(getd);
     }
 
 
     public static void main(String[] args) {
         Adddd adddd = new Adddd();
         adddd.setI();
-        System.out.println(adddd.getI());
+        adddd.getI();
         Adddd adddd2 = new Adddd();
-        System.out.println(adddd2.getI());
+        adddd2.getI();
     }
 
 }

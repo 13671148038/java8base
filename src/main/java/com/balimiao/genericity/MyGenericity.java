@@ -7,7 +7,6 @@ package com.balimiao.genericity;
  **/
 public class MyGenericity {
 
-    private MyGenericity() {}
 
     public static <T> T getString(T t) {
         return t;

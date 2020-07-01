@@ -14,4 +14,9 @@ public class MyJob implements Job {
     public void execute(JobExecutionContext context) throws JobExecutionException {
         System.out.println(999);
     }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }
