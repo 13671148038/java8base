@@ -14,6 +14,8 @@ public class App {
 
     /**
      * 将数据转换成父子的数据结构
+     * [{id=1, pId=0}, {id=2, pId=1}, {id=3, pId=0}, {id=4, pId=3}, {id=5, pId=4}] 转换成下面格式
+     * [{id=1, pId=0, children=[{id=2, pId=1}]}, {id=3, pId=0, children=[{id=4, pId=3, children=[{id=5, pId=4}]}]}]
      */
     @Test
     public void tree() {
