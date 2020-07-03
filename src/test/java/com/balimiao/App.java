@@ -1,6 +1,5 @@
 package com.balimiao;
 
-import com.alibaba.fastjson.JSON;
 import org.junit.Test;
 
 import java.time.Year;
@@ -13,22 +12,25 @@ import java.util.stream.Collectors;
  **/
 public class App {
 
+    /**
+     * 将数据转换成父子的数据结构
+     */
     @Test
     public void tree() {
         List<Map<String, Object>> data = new ArrayList<>();
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new LinkedHashMap<>();
         map.put("id", 1);
         map.put("pId", 0);
-        Map<String, Object> map2 = new HashMap<>();
+        Map<String, Object> map2 = new LinkedHashMap<>();
         map2.put("id", 2);
         map2.put("pId", 1);
-        Map<String, Object> map3 = new HashMap<>();
+        Map<String, Object> map3 = new LinkedHashMap<>();
         map3.put("id", 3);
         map3.put("pId", 0);
-        Map<String, Object> map4 = new HashMap<>();
+        Map<String, Object> map4 = new LinkedHashMap<>();
         map4.put("id", 4);
         map4.put("pId", 3);
-        Map<String, Object> map5 = new HashMap<>();
+        Map<String, Object> map5 = new LinkedHashMap<>();
         map5.put("id", 5);
         map5.put("pId", 4);
         data.add(map);
@@ -36,37 +38,38 @@ public class App {
         data.add(map3);
         data.add(map4);
         data.add(map5);
+        System.out.println(data);
         Map<Object, List<Map<String, Object>>> pId$mapList = data.stream().collect(Collectors.groupingBy(node -> node.get("pId")));
         //全部节点
         List<Map<String, Object>> nodeList = new ArrayList<>();
         //同一级的node
-        List<Map<String, Object>> sameNodeLevel = new ArrayList<>();
+        List<Map<String, Object>> sameLevelNode = new ArrayList<>();
+        //循环结束标识
         boolean flg = true;
-        int a = 0;
+        //是不是顶级节点
+        boolean isTop = true;
         while (flg) {
-            if (a == 0) {
+            if (isTop) {
                 List<Map<String, Object>> maps = pId$mapList.get(0);
-                for (Map<String, Object> c : maps) {
-                    nodeList.add(c);
-                    sameNodeLevel.add(c);
-                }
+                nodeList.addAll(maps);
+                sameLevelNode.addAll(maps);
+                isTop = false;
             } else {
                 flg = false;
-                List<Map<String, Object>> tempSameNodeLevel = new ArrayList<>();
-                for (Map<String, Object> map1 : sameNodeLevel) {
-                    Object id = map1.get("id");
-                    List<Map<String, Object>> maps = pId$mapList.get(id);
-                    if (maps != null) {
+                List<Map<String, Object>> tempSameLevelNode = new ArrayList<>();
+                for (Map<String, Object> node : sameLevelNode) {
+                    Object id = node.get("id");
+                    List<Map<String, Object>> sonNode = pId$mapList.get(id);
+                    if (sonNode != null) {
                         flg = true;
-                        tempSameNodeLevel.addAll(maps);
-                        map1.put("childrun", maps);
+                        tempSameLevelNode.addAll(sonNode);
+                        node.put("children", sonNode);
                     }
                 }
-                sameNodeLevel = tempSameNodeLevel;
+                sameLevelNode = tempSameLevelNode;
             }
-            a = 1;
         }
-        System.out.println(JSON.toJSONString(nodeList));
+        System.out.println(nodeList);
     }
 
     @Test
