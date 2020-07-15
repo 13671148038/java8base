@@ -4,7 +4,6 @@ import java.util.Comparator;
 import java.util.Date;
 
 /**
- * @Description: TODO
  * @Author zhushaopeng
  * @Date 2019/11/11
  **/
@@ -23,6 +22,15 @@ public class YkqUserSearchMedicinesVo {
     private Double drugstoreDistance;
     private Date drugstoreCreateTime;
     private Date medicinesCreateTime;
+    private boolean ddd;
+
+    public boolean isDdd() {
+        return ddd;
+    }
+
+    public void setDdd(boolean ddd) {
+        this.ddd = ddd;
+    }
 
     public Integer getMedicineId() {
         return medicineId;

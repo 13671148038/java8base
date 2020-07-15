@@ -1,6 +1,7 @@
 package com.balimiao;
 
 import com.balimiao.genericity.MyGenericity;
+import com.balimiao.pojo.YkqUserSearchMedicinesVo;
 import com.balimiao.scheduler.MyJob;
 
 import java.util.Collection;
@@ -27,6 +28,10 @@ public class App {
         Map<String,String> map = new HashMap<>();
         final Collection<String> values = map.values();
         System.out.println(values);
+
+        YkqUserSearchMedicinesVo p = new YkqUserSearchMedicinesVo();
+        final boolean ddd = p.isDdd();
+        System.out.println(ddd);
 
 
     }
