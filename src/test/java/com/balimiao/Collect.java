@@ -53,28 +53,15 @@ public class Collect {
     @Test
     public void cccc() {
 
+        Map map =  new HashMap();
+        map.put("sdc",333);
         List<Integer> list = new ArrayList<>();
         for (int i = 10; i > 0; i--) {
             list.add(i);
         }
-//        final long l = System.currentTimeMillis();
-//        list.parallelStream().forEach(c -> {
-//            final String name = Thread.currentThread().getName();
-//            System.out.println(name);
-//        });
-//        final long l1 = System.currentTimeMillis();
-//        System.out.println(l1 - l);
-//        System.out.println("--------------------------");
-//        final long l2 = System.currentTimeMillis();
-//        list.stream().forEach(c -> {
-//            final String name = Thread.currentThread().getName();
-//            System.out.println(name);
-//        });
-//        final long l3 = System.currentTimeMillis();
-//        System.out.println(l3 - l2);
-
-        final List<Integer> collect = list.parallelStream().sorted(Integer::compare).collect(Collectors.toList());
-        System.out.println(collect);
+        list.parallelStream().
+                map(c -> Thread.currentThread().getName()).
+                forEach(c -> System.out.println(c));
 
     }
 

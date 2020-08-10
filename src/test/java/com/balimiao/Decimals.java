@@ -30,13 +30,26 @@ public class Decimals {
                 divide(new BigDecimal("2")).  //除以
                 add(new BigDecimal("3")).  //加
                 subtract(new BigDecimal("62")). //减法
-                setScale(2, RoundingMode.HALF_UP); //保留两位小数,四舍五入
+                setScale(3, RoundingMode.HALF_UP); //保留两位小数,四舍五入
         System.out.println(decimal);
         System.out.println(decimal.longValue());
     }
+
     @Test
     public void c() {
-        BigDecimal decimal = new BigDecimal("36256212");
-        System.out.println(decimal.doubleValue() == 0.0);
+        //定义短信的数量
+        BigDecimal smsAmount = new BigDecimal(0);
+        //定义短信套餐数量
+        Integer num;
+        for (int i = 0; i < 2; i++) {
+            smsAmount = smsAmount.add(new BigDecimal(5000).multiply(new BigDecimal(4)));
+        }
+        System.out.println(smsAmount.longValue());
+    }
+
+    @Test
+    public void cdd() {
+        final BigDecimal bigDecimal = new BigDecimal(0.3264).setScale(3, RoundingMode.DOWN);
+        System.out.println(bigDecimal);
     }
 }
