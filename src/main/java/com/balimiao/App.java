@@ -7,8 +7,13 @@ public class App {
     public static void main(String[] args) {
 //        final Apple apple = aaa("苹果", c -> new Apple(c));
 //        System.out.println(apple.getName());
-        final Number sum = sum((a, b) -> a + b, 32, 90);
-        System.out.println(sum);
+//        final Number sum = sum((a, b) -> a + b, 32, 90);
+//        System.out.println(sum);
+
+        String a = "a";
+        String b = new String("a");
+        b = a;
+        System.out.println(a==b);
 
     }
 
