@@ -1,5 +1,7 @@
 package com.balimiao;
 
+import com.xyy.me.product.general.api.dto.pictrue.PictureProResult;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.junit.Test;
 
 import java.util.*;
@@ -53,8 +55,8 @@ public class Collect {
     @Test
     public void cccc() {
 
-        Map map =  new HashMap();
-        map.put("sdc",333);
+        Map map = new HashMap();
+        map.put("sdc", 333);
         List<Integer> list = new ArrayList<>();
         for (int i = 10; i > 0; i--) {
             list.add(i);
@@ -63,6 +65,17 @@ public class Collect {
                 map(c -> Thread.currentThread().getName()).
                 forEach(c -> System.out.println(c));
 
+    }
+
+    @Test
+    public void ccccc() {
+        List<String> integers = Arrays.asList("221", "32", "98987","32","54","879");
+        integers.sort((a,b)->b.compareTo(a));
+        System.out.println(integers);
+    }
+    @Test
+    public void ccccddc() {
+        System.out.println(NumberUtils.toDouble("0.00") == 0D);
     }
 
 }

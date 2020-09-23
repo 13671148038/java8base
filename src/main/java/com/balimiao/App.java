@@ -1,5 +1,10 @@
 package com.balimiao;
 
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.balimiao.pojo.YkqUserSearchMedicinesVo;
+
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
@@ -10,10 +15,24 @@ public class App {
 //        final Number sum = sum((a, b) -> a + b, 32, 90);
 //        System.out.println(sum);
 
-        String a = "a";
-        String b = new String("a");
-        b = a;
-        System.out.println(a==b);
+//        Function<Integer, Integer> t = a -> a * (a + 1);
+//        System.out.println(t.apply(4));
+//        final Integer apply = t.compose(t).apply(4);
+//        System.out.println(apply); //420
+//        final Integer apply1 = t.andThen(t).apply(4);
+//        System.out.println(apply1); //
+
+        YkqUserSearchMedicinesVo userSearchMedicinesVo = new YkqUserSearchMedicinesVo();
+        userSearchMedicinesVo.setDrugstoreName("所产生的(上档次)");
+        String value = JSON.toJSONString(userSearchMedicinesVo);
+        value = value.replaceAll("\\(", "&#40;").replaceAll("\\)", "&#41;");
+        value = value.replaceAll("%28", "&#40;").replaceAll("%29", "&#41;");
+        value = value.replaceAll("'", "&#39;");
+        value = value.replaceAll("eval\\((.*)\\)", "");
+        value = value.replaceAll("[\\\"\\\'][\\s]*javascript:(.*)[\\\"\\\']", "\"\"");
+        value = value.replaceAll("<script", "＜script");
+        userSearchMedicinesVo = JSONObject.parseObject(value, YkqUserSearchMedicinesVo.class);
+        System.out.println(JSON.toJSONString(userSearchMedicinesVo));
 
     }
 
