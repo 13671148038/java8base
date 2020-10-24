@@ -1,10 +1,12 @@
 package com.balimiao;
 
+import com.balimiao.pojo.YkqUserSearchMedicinesVo;
 import com.balimiao.staticclass.Adddd;
 import org.junit.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @Author zhushaopeng
@@ -49,6 +51,12 @@ public class Collect {
         System.out.println(objects == object4);
         List<ArrayList<Object>> arrayLists = Collections.singletonList(new ArrayList<>());
         arrayLists = Collections.singletonList(new ArrayList<>());
+
+
+        List<YkqUserSearchMedicinesVo> list = Arrays.asList(new YkqUserSearchMedicinesVo());
+        Map<Integer, YkqUserSearchMedicinesVo> collect = list.stream().collect(Collectors.toMap(a -> a.getDrugstoreId(), b -> b));
+        Map<Integer, List<YkqUserSearchMedicinesVo>> collect1 = list.stream().collect(Collectors.groupingBy(YkqUserSearchMedicinesVo::getDrugstoreId));
+        Stream<YkqUserSearchMedicinesVo> sorted = list.stream().sorted((a, b) -> a.getDrugstoreId().compareTo(b.getDrugstoreId()));
     }
 
 }
