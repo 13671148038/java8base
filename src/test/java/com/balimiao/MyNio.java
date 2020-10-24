@@ -11,13 +11,14 @@ import java.nio.channels.FileChannel;
 public class MyNio {
     @Test
     public void test1() throws Exception {
-        RandomAccessFile write = new RandomAccessFile("pom222.xml", "rw");
+        RandomAccessFile write = new RandomAccessFile("data/target.txt", "rw");
         FileChannel writeChannel = write.getChannel();
 
 
-        RandomAccessFile read = new RandomAccessFile("pom.xml", "r");
+        RandomAccessFile read = new RandomAccessFile("data/target.txt", "r");
         FileChannel readChannel = read.getChannel();
         ByteBuffer byteBuffer = ByteBuffer.allocateDirect(10000);
+
 
         int count = 1;
         while (readChannel.read(byteBuffer) != -1) {
@@ -38,7 +39,8 @@ public class MyNio {
         FileChannel targetChannel = ((FileOutputStream) outputStream).getChannel();
         RandomAccessFile randomAccessFile = new RandomAccessFile("data/source.txt", "r");
         FileChannel channel = randomAccessFile.getChannel();
-        channel.transferTo(0, channel.size(), targetChannel);
+        final long l = channel.transferTo(0, channel.size(), targetChannel);
+        System.out.println(l);
         channel.close();
         targetChannel.close();
     }

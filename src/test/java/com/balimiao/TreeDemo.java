@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
  * @Author zhushaopeng
  * @Date 2020/6/17
  **/
-public class App {
+public class TreeDemo {
 
     /**
      * 将数据转换成父子的数据结构

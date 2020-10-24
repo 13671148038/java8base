@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kite.dao.mapper.TestDatabaseDoMapper">
+  <resultMap id="BaseResultMap" type="com.kite.dao.TestDatabaseDo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="TINYINT" property="userId" />
+    <result column="job_id" jdbcType="BIT" property="jobId" />
+    <result column="department_id" jdbcType="TINYINT" property="departmentId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="is_test" jdbcType="BIT" property="isTest" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, job_id, department_id, name, is_test
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_database
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test_database
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.kite.dao.TestDatabaseDo">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into test_database (user_id, job_id, department_id, 
+      name, is_test)
+    values (#{userId,jdbcType=TINYINT}, #{jobId,jdbcType=BIT}, #{departmentId,jdbcType=TINYINT}, 
+      #{name,jdbcType=VARCHAR}, #{isTest,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kite.dao.TestDatabaseDo">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into test_database
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="jobId != null">
+        job_id,
+      </if>
+      <if test="departmentId != null">
+        department_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="isTest != null">
+        is_test,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=TINYINT},
+      </if>
+      <if test="jobId != null">
+        #{jobId,jdbcType=BIT},
+      </if>
+      <if test="departmentId != null">
+        #{departmentId,jdbcType=TINYINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="isTest != null">
+        #{isTest,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kite.dao.TestDatabaseDo">
+    update test_database
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=TINYINT},
+      </if>
+      <if test="jobId != null">
+        job_id = #{jobId,jdbcType=BIT},
+      </if>
+      <if test="departmentId != null">
+        department_id = #{departmentId,jdbcType=TINYINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="isTest != null">
+        is_test = #{isTest,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kite.dao.TestDatabaseDo">
+    update test_database
+    set user_id = #{userId,jdbcType=TINYINT},
+      job_id = #{jobId,jdbcType=BIT},
+      department_id = #{departmentId,jdbcType=TINYINT},
+      name = #{name,jdbcType=VARCHAR},
+      is_test = #{isTest,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.kite.dao.TestDatabaseDo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="TINYINT" property="userId" />
+    <result column="job_id" jdbcType="BIT" property="jobId" />
+    <result column="department_id" jdbcType="TINYINT" property="departmentId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="is_test" jdbcType="BIT" property="isTest" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, job_id, department_id, name, is_test
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_database
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test_database
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.kite.dao.TestDatabaseDo">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into test_database (user_id, job_id, department_id, 
+      name, is_test)
+    values (#{userId,jdbcType=TINYINT}, #{jobId,jdbcType=BIT}, #{departmentId,jdbcType=TINYINT}, 
+      #{name,jdbcType=VARCHAR}, #{isTest,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kite.dao.TestDatabaseDo">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into test_database
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="jobId != null">
+        job_id,
+      </if>
+      <if test="departmentId != null">
+        department_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="isTest != null">
+        is_test,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=TINYINT},
+      </if>
+      <if test="jobId != null">
+        #{jobId,jdbcType=BIT},
+      </if>
+      <if test="departmentId != null">
+        #{departmentId,jdbcType=TINYINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="isTest != null">
+        #{isTest,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kite.dao.TestDatabaseDo">
+    update test_database
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=TINYINT},
+      </if>
+      <if test="jobId != null">
+        job_id = #{jobId,jdbcType=BIT},
+      </if>
+      <if test="departmentId != null">
+        department_id = #{departmentId,jdbcType=TINYINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="isTest != null">
+        is_test = #{isTest,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kite.dao.TestDatabaseDo">
+    update test_database
+    set user_id = #{userId,jdbcType=TINYINT},
+      job_id = #{jobId,jdbcType=BIT},
+      department_id = #{departmentId,jdbcType=TINYINT},
+      name = #{name,jdbcType=VARCHAR},
+      is_test = #{isTest,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
