@@ -1,7 +1,5 @@
 package com.balimiao;
 
-import com.xyy.me.product.general.api.dto.pictrue.PictureProResult;
-import org.apache.commons.lang3.math.NumberUtils;
 import org.junit.Test;
 
 import java.util.*;
@@ -69,13 +67,19 @@ public class Collect {
 
     @Test
     public void ccccc() {
-        List<String> integers = Arrays.asList("221", "32", "98987","32","54","879");
-        integers.sort((a,b)->b.compareTo(a));
+        List<String> integers = Arrays.asList("221", "32", "98987", "32", "54", "879");
+        integers.sort((a, b) -> b.compareTo(a));
         System.out.println(integers);
     }
+
     @Test
     public void ccccddc() {
-        System.out.println(NumberUtils.toDouble("0.00") == 0D);
+        List<Integer> list = Arrays.asList(4, 6, 34, 6, 8, 6, 45, 5, 64, 4, 4, 6, 3, 2, 6, 8, 43, 9);
+        List<Integer> collect1 = list.stream().distinct().collect(Collectors.toList());
+        System.out.println(collect1);
+        List<Integer> collect = list.parallelStream().distinct().collect(Collectors.toList());
+        System.out.println(collect);
+
     }
 
 }

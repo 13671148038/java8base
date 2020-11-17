@@ -52,9 +52,10 @@ public class Decimals {
         final BigDecimal bigDecimal = new BigDecimal(0.3264).setScale(3, RoundingMode.DOWN);
         System.out.println(bigDecimal);
     }
+
     @Test
     public void cdddd() {
-        BigDecimal bigDecimal = new BigDecimal(0.525);
-        System.out.println(bigDecimal);
+        BigDecimal bigDecimal = new BigDecimal("1");
+        System.out.println(bigDecimal.compareTo(new BigDecimal("0")));
     }
 }
