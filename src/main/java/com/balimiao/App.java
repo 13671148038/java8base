@@ -10,6 +10,8 @@ import java.util.function.Function;
 public class App {
     public static void main(String[] args) {
 
+        System.out.println(String.class.getClassLoader());
+
         ListNode l1 = new ListNode(3);
         ListNode l2 = new ListNode(9);
 
