@@ -87,7 +87,12 @@ public class Collect {
         System.out.println(collect1);
         List<Integer> collect = list.parallelStream().distinct().collect(Collectors.toList());
         System.out.println(collect);
+    }
 
+    @Test
+    public void urnno() {
+        List<Long> list = Arrays.asList(4L, 6L);
+        System.out.println(list.stream().map(c->c.toString()).collect(Collectors.joining(",")));
     }
 
 }

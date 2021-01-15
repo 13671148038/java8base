@@ -30,7 +30,7 @@ public class Decimals {
                 divide(new BigDecimal("2")).  //除以
                 add(new BigDecimal("3")).  //加
                 subtract(new BigDecimal("62")). //减法
-                setScale(3, RoundingMode.HALF_UP); //保留两位小数,四舍五入
+                setScale(2, RoundingMode.HALF_UP); //保留两位小数,四舍五入
         System.out.println(decimal);
         System.out.println(decimal.longValue());
     }
@@ -49,13 +49,14 @@ public class Decimals {
 
     @Test
     public void cdd() {
-        final BigDecimal bigDecimal = new BigDecimal(0.3264).setScale(3, RoundingMode.DOWN);
+        final BigDecimal bigDecimal = new BigDecimal(0.3264).setScale(1, RoundingMode.DOWN);
         System.out.println(bigDecimal);
     }
 
     @Test
     public void cdddd() {
-        BigDecimal bigDecimal = new BigDecimal("1");
-        System.out.println(bigDecimal.compareTo(new BigDecimal("0")));
+        BigDecimal bigDecimal = new BigDecimal("0.00");
+        System.out.println(bigDecimal.compareTo(new BigDecimal("0.1")));
+        System.out.printf(new BigDecimal(1009898).divide(new BigDecimal("100")).setScale(2, RoundingMode.DOWN).toString());
     }
 }
