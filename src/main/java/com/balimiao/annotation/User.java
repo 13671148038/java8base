@@ -1,10 +1,14 @@
 package com.balimiao.annotation;
 
+import lombok.Data;
+
 /**
  * @Author zhushaopeng
  * @Date 2020/5/26
  **/
-public class User {
+@Data
+@MyAnnotation(indexName = "userIndex")
+public final class User {
 
     @MyAnnotation(propert = "姓名", methodName = "getName")
     private String name;
@@ -12,6 +16,13 @@ public class User {
     private String sex;
     @MyAnnotation(propert = "年龄", methodName = "getAge")
     private Integer age;
+
+    public User() {
+    }
+
+    public User(String name) {
+        this.name = name;
+    }
 
     public String getName() {
         return name;

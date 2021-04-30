@@ -26,8 +26,9 @@ public class MyTime {
     //java8新的时间格式化
     @Test
     public void test2() {
-        DateTimeFormatter isoLocalDateTime = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String format = isoLocalDateTime.format(LocalDateTime.now());
+        DateTimeFormatter isoLocalDateTime = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime from = LocalDateTime.of(2014, Month.APRIL, 16, 0, 0, 0);
+        String format = isoLocalDateTime.format(from);
         System.out.println(format);
     }
 

@@ -30,8 +30,9 @@ public class Decimals {
                 divide(new BigDecimal("2")).  //除以
                 add(new BigDecimal("3")).  //加
                 subtract(new BigDecimal("62")). //减法
-                setScale(2, RoundingMode.HALF_UP); //保留两位小数,四舍五入
-        System.out.println(decimal);
+                setScale(0, RoundingMode.HALF_UP); //保留两位小数,四舍五入
+        System.out.println(decimal.intValue());
+        System.out.println(decimal.intValueExact());
         System.out.println(decimal.longValue());
     }
 
