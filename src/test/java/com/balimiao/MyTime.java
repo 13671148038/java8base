@@ -36,11 +36,11 @@ public class MyTime {
     //java8的时间片段
     @Test
     public void test3() {
-        final LocalDateTime from = LocalDateTime.of(2014, Month.APRIL, 16, 0, 0, 0);
-        final LocalDateTime to = LocalDateTime.of(2015, Month.APRIL, 16, 23, 59, 59);
-        Duration duration = Duration.between(from, to);
-        long l = duration.toDays();
-        System.out.println(l);
+        final LocalDate from = LocalDate.of(2015, Month.APRIL, 16);
+        final LocalDate to = LocalDate.of(2015, Month.APRIL, 16);
+        int days = (int) Duration.between(from.atStartOfDay(), to.atStartOfDay()).toDays() + 1;
+        System.out.println(days);
+
 
         Duration duration1 = Duration.ofDays(1);
         long l1 = duration1.toMinutes();
@@ -209,16 +209,17 @@ public class MyTime {
         LocalTime localTime = LocalTime.ofSecondOfDay(3600);
         System.out.println(localTime.toString()); //01:00
     }
+
     //将当天的秒数转化成时间
     @Test
     public void dddssd() {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime parse = LocalDateTime.parse("2020-04-25 00:30:14", dateTimeFormatter);
         long startTimeSecond = parse.toEpochSecond(ZoneOffset.ofHours(8));
-        System.out.println(startTimeSecond*1000);
-        LocalDateTime localDateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(startTimeSecond*1000), ZoneOffset.UTC);
+        System.out.println(startTimeSecond * 1000);
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(startTimeSecond * 1000), ZoneOffset.UTC);
         System.out.println(localDateTime);
-        System.out.println(new Date(startTimeSecond*1000));
+        System.out.println(new Date(startTimeSecond * 1000));
     }
 
 }

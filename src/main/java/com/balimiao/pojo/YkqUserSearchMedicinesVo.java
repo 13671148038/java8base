@@ -2,7 +2,6 @@ package com.balimiao.pojo;
 
 import lombok.Data;
 
-import java.util.Comparator;
 import java.util.Date;
 
 /**
@@ -23,4 +22,5 @@ public class YkqUserSearchMedicinesVo {
     private Date drugstoreCreateTime;
     private Date medicinesCreateTime;
     private boolean ddd;
+    private Long id;
 }

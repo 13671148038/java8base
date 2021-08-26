@@ -25,13 +25,18 @@ public class Decimals {
 
     @Test
     public void b() {
+
+        String completeRate = new BigDecimal("25").multiply(new BigDecimal("100")).divide(new BigDecimal("38"), 0, RoundingMode.HALF_DOWN).toString() + "%";
+
+        System.out.println(completeRate);
+
         BigDecimal decimal = new BigDecimal("2020.3625236").
                 multiply(new BigDecimal("2020.3625236")). //乘以
                 divide(new BigDecimal("2")).  //除以
                 add(new BigDecimal("3")).  //加
                 subtract(new BigDecimal("62")). //减法
                 setScale(0, RoundingMode.HALF_UP); //保留两位小数,四舍五入
-        System.out.println(decimal.intValue());
+        System.out.println(decimal.toString());
         System.out.println(decimal.intValueExact());
         System.out.println(decimal.longValue());
     }

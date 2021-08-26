@@ -14,7 +14,8 @@ import java.util.stream.Collectors;
 public class Operator {
     @Test
     public void a() {
-        Double aa = 555D;
+        Double aa = 555.843D;
+        System.out.println(aa.intValue());
         final String format = String.format("%.0f", aa);
         System.out.println(format);
     }
