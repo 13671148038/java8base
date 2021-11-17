@@ -21,6 +21,8 @@ public class MyTime {
 
         System.out.println(millis);
         System.out.println(l);
+        System.out.println(new Date().getTime());
+
     }
 
     //java8新的时间格式化
@@ -75,9 +77,10 @@ public class MyTime {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         System.out.println(now.format(dateTimeFormatter));
         //获取当前毫秒值
-        System.out.println(now.toInstant(ZoneOffset.UTC).toEpochMilli());
+        System.out.println(now.toInstant(ZoneOffset.of("+8")).toEpochMilli());
+        System.out.println(Clock.systemUTC().millis());
         //将毫秒值转为LocalDateTime
-        LocalDateTime localDateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(1569514403534L), ZoneOffset.UTC);
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(now.toInstant(ZoneOffset.of("+8")).toEpochMilli()), ZoneOffset.systemDefault());
         System.out.println(localDateTime.format(dateTimeFormatter));
         int dayOfMonth = now.getDayOfMonth();
         System.out.println(dayOfMonth);
