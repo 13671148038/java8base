@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author zhushaopeng
@@ -11,12 +12,14 @@ import java.nio.channels.SocketChannel;
  **/
 public class SocketClient {
 
-    public static void main(String[] args) throws IOException {
-
-        final SocketChannel socketChannel = SocketChannel.open(new InetSocketAddress("localhost", 8022));
-        final ByteBuffer allocate = ByteBuffer.allocate(100);
-        allocate.put(ByteBuffer.wrap("你好啊啊啊".getBytes()));
-        socketChannel.write(allocate);
-
+    public static void main(String[] args) throws IOException, InterruptedException {
+        SocketChannel socketChannel = SocketChannel.open();
+        socketChannel.connect(new InetSocketAddress(8022));
+        ByteBuffer buffer = ByteBuffer.allocate(4096);
+        buffer.put("1".getBytes());
+        while (true) {
+            TimeUnit.SECONDS.sleep(1);
+            socketChannel.write(buffer);
+        }
     }
 }
