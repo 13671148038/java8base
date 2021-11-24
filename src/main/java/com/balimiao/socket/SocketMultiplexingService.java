@@ -71,6 +71,7 @@ public class SocketMultiplexingService {
             if (read > 0) {
                 buffer.flip();
                 while (buffer.hasRemaining()) {
+//                    client.register(key.selector(), SelectionKey.OP_WRITE, buffer);
                     client.write(buffer);
                 }
             } else if (read == 0) {
