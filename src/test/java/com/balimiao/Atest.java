@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -25,13 +24,30 @@ public class Atest {
     private static final ThreadPoolExecutor pool = new ThreadPoolExecutor(8, 8, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
 
     @Test
-    public void bbbbccc() throws IOException {
+    public void bbbbccc() {
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int i = binarySearch(arr, 5);
+        System.out.println(i);
 
-        String aa = "demo_topic,activity_record_like_topic,distribute_user_class_leader_boards_msg_topic,upload_read_process_topic,save_ch_book_card_read_record,distribute_user_bilingual_activity_leader_boards_msg_topic,update_user_bilingual_activity_area_leader_boards_topic,distribute_user_bilingual_activity_like_leader_boards_msg_topic,update_user_bilingual_activity_area_like_leader_boards_topic,activity_clock_book,add_user_news_topic,join_default_class_topic,island_friend_boost_topic,common_topic,wechat_exchange_code_topic,user_book_read_completed_topic,student_join_class_group_succeeded_topic,teacher_up_class_activity_cache_topic,activity_publish_and_generate_template_task_topic,record_make_up_complete_status_task_topic,refresh_activity_cache_task_topic,merge_role_play_voice_topic,save_user_share_log_topic,teacher_novice_task_topic,update_activity_status_topic,user_read_task_submit_topic,ch_book_card_read_record_like_topic,ch_book_card_read_record_play_topic,english_pk_activity_sumit_topic,question_activity_submit_topic,syncronized_student_area_school_info,read_top_user_topic,province_city_code_from_mobile_ip_topic,synchronization_student_school_grade_class_topic,pay_order_success_topic,pay_order_create_topic,delay_order_create_topic,add_user_daily_task,update_user_class_leader_boards_topic,update_user_coin~add,update_user_coin~reduce,distribute_user_bd_activity_leader_boards_msg_topic,distribute_user_activity_leader_boards_msg_topic,push_student_topic,push_teacher_topic,push_parent_topic,wechat_msg_push_task_topic,user_visit_topic";
-        List<String> list = Arrays.asList(aa.split(","));
-        System.out.println(list.size());
+    }
 
-
+    //二分法查找
+    public int binarySearch(int[] arr, int target) {
+        if (arr == null || arr.length == 0) {
+            return -1;
+        }
+        int startIndex = 0, endIndex = arr.length - 1;
+        while (startIndex <= endIndex) {
+            int mid = (startIndex + endIndex) / 2;
+            if (target == arr[mid]) {
+                return mid;
+            } else if (target < arr[mid]) {
+                endIndex = mid - 1;
+            } else {
+                startIndex = mid + 1;
+            }
+        }
+        return -1;
     }
 
     @Test

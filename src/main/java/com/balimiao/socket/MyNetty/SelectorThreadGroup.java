@@ -2,10 +2,8 @@ package com.balimiao.socket.MyNetty;
 
 import java.net.InetSocketAddress;
 import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.util.LinkedList;
-import java.util.concurrent.TimeUnit;
 
 public class SelectorThreadGroup {
 
@@ -25,13 +23,9 @@ public class SelectorThreadGroup {
         try {
             ServerSocketChannel server = ServerSocketChannel.open().bind(new InetSocketAddress(port));
             server.configureBlocking(false);
-            SelectorThread selectorThread = next();
-            Selector selector = selectorThread.getSelector();
-            server.register(selector, SelectionKey.OP_ACCEPT);
-            TimeUnit.SECONDS.sleep(2);
-            System.out.println("sdcd");
-            selector.wakeup();
-            System.out.println("jjkhj");
+            SelectorThread selectorThread = this.next();
+            selectorThread.getChannels().put(server);
+            selectorThread.getSelector().wakeup();  //唤醒,如果是阻塞
         } catch (Exception e) {
         }
     }
