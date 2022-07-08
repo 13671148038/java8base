@@ -2,7 +2,9 @@ package com.balimiao;
 
 import org.junit.Test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -24,15 +26,11 @@ public class AppTest {
 
     @Test
     public void aaa() {
-      List<Integer> list = new ArrayList<>();
-        list.add(5);
-        list.add(88);
-        list.add(9);
-//        list.sort((a,b)->a.compareTo(b));
-        list.sort(Comparator.comparing(Integer::intValue));
-        list.forEach(c->{
-            System.out.println(c);
-        });
+        int i = 0;
+        do {
+            System.out.println(i);
+            i++;
+        } while (i < 3);
     }
 
     @Test

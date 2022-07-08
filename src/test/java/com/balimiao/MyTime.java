@@ -225,4 +225,15 @@ public class MyTime {
         System.out.println(new Date(startTimeSecond * 1000));
     }
 
+    @Test
+    public void dataJj() {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate now = LocalDate.now();
+        System.out.println(now.format(dateTimeFormatter));
+        LocalDate localDate = now.plusWeeks(0L);
+        System.out.println(localDate.format(dateTimeFormatter));
+        DayOfWeek dayOfWeek = localDate.getDayOfWeek();
+        System.out.println(dayOfWeek.getValue());
+    }
+
 }
